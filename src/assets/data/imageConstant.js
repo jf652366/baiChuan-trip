@@ -8,5 +8,7 @@ export const TAB_FAVOR_IMG = 'https://jinfengdeyitian.top/picgo/tab_favor.png';
 export const TAB_FAVOR_ACTIVE_IMG = 'https://jinfengdeyitian.top/picgo/tab_favor_active.png';
 
 // 首页图片
-export const HOME_HEADER_RIGHT_IMG ='https://jinfengdeyitian.top/picgo/mob-TjHeader-header-right.png'
-export const HOME_HEADER_LOGO_IMG ='https://jinfengdeyitian.top/picgo/home_logo.png'
+export const HOME_HEADER_RIGHT_IMG = 'https://jinfengdeyitian.top/picgo/mob-TjHeader-header-right.png';
+export const HOME_HEADER_LOGO_IMG = 'https://jinfengdeyitian.top/picgo/home_logo.png';
+export const HOME_POSITION_MY_POSITION_IMG = 'https://jinfengdeyitian.top/picgo/icon_location.png';
+export const HOME_BANNER_IMG = 'https://jinfengdeyitian.top/picgo/banner.webp';
