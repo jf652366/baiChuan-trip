@@ -10,6 +10,7 @@
   "dependencies": {
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.28",
+    "react-device-detect": "^2.2.2",
     "vant": "^4.0.6",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"

@@ -24,6 +24,13 @@ const router = createRouter({
       path: '/message',
       component: () => import('@/views/Message/Message.vue')
     },
+    {
+      path: '/cite',
+      component: () => import('@/views/Cite/Cite.vue'),
+      meta: {
+        showTabBar: true
+      }
+    }
   ]
 });
 export default router;

@@ -8,7 +8,7 @@
 
 <script setup>
 import HomeHeader from "@/views/Home/components/HomeHeader.vue";
-import HomePosition from "@/views/Home/components/HomePosition.vue";
+import HomePosition from "@/views/Home/components/HomeSearchBox.vue";
 import HomeBanner from "@/views/Home/components/HomeBanner.vue";
 </script>
 
