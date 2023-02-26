@@ -5,3 +5,8 @@ export const getHotSuggestsData=()=>{
     url:'/home/hotSuggests'
   })
 }
+export const getCategoriesData=()=>{
+  return bcRequest.get({
+    url:'/home/categories'
+  })
+}

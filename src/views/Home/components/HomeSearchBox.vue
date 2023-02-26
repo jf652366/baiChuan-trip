@@ -53,6 +53,12 @@
         </template>
       </div>
     </div>
+    <div class="search-box-container   search-bottom" >
+      <div class="search-bottom-content flex-center" @click="searchButtonClick">开始搜索</div>
+    </div>
+    <div class="search-box-container warn flex-center">
+      民宿预定服务由柏川网提供
+    </div>
     <!-- 日历选择组件 -->
     <van-calendar :formatter="formatter" @close="show = false" :show="show" type="range" @confirm="onConfirm"/>
 
@@ -87,8 +93,8 @@ import {useHomeStore} from "@/stores/modules/homeStore";
 const router = useRouter();
 const cityStore = useCiteStore()
 const {currentCity} = storeToRefs(cityStore)
-const homeStore=useHomeStore()
-const {hotSuggests}=storeToRefs(homeStore)
+const homeStore=useHomeStore();
+const {hotSuggests,fetchCategories}=storeToRefs(homeStore)
 const getCiteName = () => {
   router.push('/cite')
 }
@@ -153,7 +159,17 @@ const onFilterConfirm = (value) => {
   if (shouFilterTitle.value === '请选择入住人数') {
     filterPersonData.value = dataValue;
   }
+}
 
+const searchButtonClick=()=>{
+  router.push({
+    path:'/search',
+    query:{
+      citeName:currentCity.value.cityName,
+      startDate:startDate.value,
+      endDate:endDate.value,
+    }
+  })
 }
 </script>
 
@@ -260,7 +276,7 @@ const onFilterConfirm = (value) => {
   .hot-suggests {
     border-bottom: none;
     padding-top: 10px;
-
+    margin-bottom: 6px;
     &-container {
       display: flex;
       flex-wrap: wrap;
@@ -274,6 +290,28 @@ const onFilterConfirm = (value) => {
         text-align: center;
       }
     }
+  }
+
+  .search-bottom {
+    border-bottom: none;
+    &-content {
+      width: 342px;
+      height: 38px;
+      background-image: linear-gradient(90deg,#fa8c1d,#fcaf3f);
+      font-weight: 500;
+      font-size: 18px;
+      color: #FFF;
+      font-family: PingFangSC-Medium;
+      border-radius: 20px;
+    }
+  }
+
+  .warn {
+    margin-top: 8px;
+    font-size: 9px;
+    color: #CCC;
+    border-bottom: none;
+    justify-content: center;
   }
 }
 
