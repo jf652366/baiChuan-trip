@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import {computed, ref, watch} from "vue";
+import { ref, watch} from "vue";
 import useCiteStore from "@/stores/modules/cityStore";
 import {storeToRefs} from "pinia";
 import CityGroup from "@/views/City/components/CityGroup.vue";

@@ -2,21 +2,17 @@
   <div class="home">
     <HomeHeader/>
     <HomeBanner/>
-    <HomePosition/>
+    <HomeSearchBox :hotSuggests="hotSuggests"/>
   </div>
 </template>
 
 <script setup>
 import HomeHeader from "@/views/Home/components/HomeHeader.vue";
-import HomePosition from "@/views/Home/components/HomeSearchBox.vue";
+import HomeSearchBox from "@/views/Home/components/HomeSearchBox.vue";
 import HomeBanner from "@/views/Home/components/HomeBanner.vue";
-import bcRequest from "@/services/request";
-
-bcRequest.get({
-  url:'/home/hotSuggests'
-}).then(res=>{
-  console.log(res.data)
-})
+import {useHomeStore} from "@/stores/modules/homeStore";
+const homeStore=useHomeStore();
+homeStore.fetchHotSuggests()
 </script>
 
 <style lang="less" scoped>

@@ -36,7 +36,22 @@
       </div>
     </div>
     <div class="search-box-container search-container">
-    关键字/位置/民宿名
+      关键字/位置/民宿名
+    </div>
+    <div class="search-box-container hot-suggests">
+      <div class="hot-suggests-container">
+        <template v-for="(item,index) in hotSuggests">
+          <div
+              class="hot-suggests-container-item"
+              :style="{
+                  color:item.tagText.color,
+                  background:item.tagText.background.color
+               }"
+          >
+            {{ item.tagText.text }}
+          </div>
+        </template>
+      </div>
     </div>
     <!-- 日历选择组件 -->
     <van-calendar :formatter="formatter" @close="show = false" :show="show" type="range" @confirm="onConfirm"/>
@@ -65,12 +80,15 @@ import {
 import {useRouter} from "vue-router";
 import useCiteStore from "@/stores/modules/cityStore";
 import {storeToRefs} from "pinia";
-import dayjs, {Dayjs} from "dayjs";
+import dayjs from "dayjs";
 import {computed, ref} from "vue";
+import {useHomeStore} from "@/stores/modules/homeStore";
 
 const router = useRouter();
 const cityStore = useCiteStore()
 const {currentCity} = storeToRefs(cityStore)
+const homeStore=useHomeStore()
+const {hotSuggests}=storeToRefs(homeStore)
 const getCiteName = () => {
   router.push('/cite')
 }
@@ -150,13 +168,13 @@ const onFilterConfirm = (value) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 44px;
     margin: 0 20px;
     border-bottom: 1px solid #f3f3f3;
     user-select: none;
   }
 
   .home-position {
+    height: 44px;
 
     &-cite {
       max-width: 250px;
@@ -186,6 +204,8 @@ const onFilterConfirm = (value) => {
   }
 
   .home-data {
+    height: 44px;
+
     .tip {
       text-align: left;
       line-height: 16px;
@@ -213,6 +233,7 @@ const onFilterConfirm = (value) => {
   }
 
   .home-filter {
+    height: 44px;
     color: #999;
     font-size: 14px;
 
@@ -229,9 +250,30 @@ const onFilterConfirm = (value) => {
       height: 18px;
     }
   }
+
   .search-container {
+    height: 44px;
     font-size: 14px;
     color: #999999;
+  }
+
+  .hot-suggests {
+    border-bottom: none;
+    padding-top: 10px;
+
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      &-item {
+        margin: 3px;
+        padding: 4px 8px;
+        border-radius: 14px;
+        font-size: 12px;
+        line-height: 12px;
+        text-align: center;
+      }
+    }
   }
 }
 
