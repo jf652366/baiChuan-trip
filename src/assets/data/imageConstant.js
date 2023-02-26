@@ -12,3 +12,4 @@ export const HOME_HEADER_RIGHT_IMG = 'https://jinfengdeyitian.top/picgo/mob-TjHe
 export const HOME_HEADER_LOGO_IMG = 'https://jinfengdeyitian.top/picgo/home_logo.png';
 export const HOME_POSITION_MY_POSITION_IMG = 'https://jinfengdeyitian.top/picgo/icon_location.png';
 export const HOME_BANNER_IMG = 'https://jinfengdeyitian.top/picgo/banner.webp';
+export const HOME_RELOAD_IMG='https://jinfengdeyitian.top/picgo/home_reload.png'

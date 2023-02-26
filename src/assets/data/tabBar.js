@@ -8,6 +8,7 @@ import {
   TAB_ORDER_IMG
 } from "@/assets/data/imageConstant";
 
+// 整体底部 tab_bar
 export const TAB_BAR_DATA = [
   {
     text: "首页",
