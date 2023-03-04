@@ -179,7 +179,7 @@ const searchButtonClick=()=>{
   --van-button-primary-background: var(--primary-color);
   --van-button-primary-border-color: var(--primary-color);
   --van-calendar-range-middle-color: var(--primary-color);
-
+  background: #FFF;
   .search-box-container {
     display: flex;
     justify-content: space-between;

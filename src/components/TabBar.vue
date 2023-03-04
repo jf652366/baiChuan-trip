@@ -24,6 +24,9 @@ const goPage = (path = '', index) => {
   activeIndex.value = index;
   router.push(path);
 }
+const hello =()=>{
+  console.log('hello word');
+}
 </script>
 
 <style lang="less" scoped>
@@ -39,7 +42,7 @@ const goPage = (path = '', index) => {
   width: 100%;
   height: 50px;
   border-top: 1px solid #f3f3f3;
-
+background: #FFF;
   &-item {
     display: flex;
     flex-direction: column;

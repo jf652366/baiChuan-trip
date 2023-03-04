@@ -1,7 +1,7 @@
 <template>
   <div class="app">
-    <router-view/>
-    <TabBar v-if="!route?.meta?.showTabBar"/>
+      <router-view/>
+      <TabBar v-if="!route?.meta?.showTabBar"/>
   </div>
 </template>
 <script setup>
@@ -13,5 +13,8 @@ const route = useRoute();
 
 </script>
 <style lang="less" scoped>
-
+.app {
+  padding-bottom: 50px;
+  background: #f8f8f8;
+}
 </style>
