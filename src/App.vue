@@ -1,16 +1,16 @@
 <template>
-  <div class="app">
-      <router-view/>
-      <TabBar v-if="!route?.meta?.showTabBar"/>
-  </div>
+
+  <router-view/>
+  <TabBar v-if="!route?.meta?.showTabBar"/>
+  <loading/>
 </template>
 <script setup>
 
 import TabBar from "@/components/TabBar.vue";
 import {useRoute} from "vue-router";
+import Loading from "@/components/Loading.vue";
 
 const route = useRoute();
-
 </script>
 <style lang="less" scoped>
 .app {

@@ -24,9 +24,6 @@ const goPage = (path = '', index) => {
   activeIndex.value = index;
   router.push(path);
 }
-const hello =()=>{
-  console.log('hello word');
-}
 </script>
 
 <style lang="less" scoped>

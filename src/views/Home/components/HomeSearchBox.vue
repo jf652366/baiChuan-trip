@@ -12,12 +12,12 @@
     <div class="home-data search-box-container" @click="show=true">
       <div class="home-data-left">
         <div class="tip">入住</div>
-        <div class="data">{{ startDate }}</div>
+        <div class="data">{{ startDates }}</div>
       </div>
       <div class="home-data-center">共{{ timeLong }}晚</div>
       <div class="home-data-right">
         <div class="tip">离店</div>
-        <div class="data">{{ endDate }}</div>
+        <div class="data">{{ endDates }}</div>
       </div>
     </div>
     <div class="home-filter search-box-container">
@@ -53,7 +53,7 @@
         </template>
       </div>
     </div>
-    <div class="search-box-container   search-bottom" >
+    <div class="search-box-container   search-bottom">
       <div class="search-bottom-content flex-center" @click="searchButtonClick">开始搜索</div>
     </div>
     <div class="search-box-container warn flex-center">
@@ -89,28 +89,30 @@ import {storeToRefs} from "pinia";
 import dayjs from "dayjs";
 import {computed, ref} from "vue";
 import {useHomeStore} from "@/stores/modules/homeStore";
+import {useMainStore} from "@/stores/modules/mainStore";
 
 const router = useRouter();
 const cityStore = useCiteStore()
 const {currentCity} = storeToRefs(cityStore)
-const homeStore=useHomeStore();
-const {hotSuggests,fetchCategories}=storeToRefs(homeStore)
+const homeStore = useHomeStore();
+const {hotSuggests, fetchCategories} = storeToRefs(homeStore)
 const getCiteName = () => {
   router.push('/cite')
 }
 
 /* ---------------------------- [ 日期范围处理 ] ---------------------------- */
 
-const newDate = new Date();
-const startDate = ref(dayjs().format('MM月DD日'));
+const mainStore = useMainStore();
+const {startDate, endDate,} = storeToRefs(mainStore)
+const startDates = computed(() => dayjs(startDate.value).format('MM月DD日'));
+
 const timeLong = ref(1);
-const endDate = ref(dayjs(newDate.setDate(newDate.getDate() + 1)).format('MM月DD日'));
+const endDates = computed(() => dayjs(endDate.value).format('MM月DD日'));
 const show = ref(false);
 const onConfirm = (values) => {
   const [start, end] = values;
   show.value = false;
-  startDate.value = dayjs(start).format('MM月DD日');
-  endDate.value = dayjs(end).format('MM月DD日');
+  mainStore.setMainDate(start, end)
   timeLong.value = dayjs(end).diff(dayjs(start), 'day');
 };
 
@@ -161,13 +163,13 @@ const onFilterConfirm = (value) => {
   }
 }
 
-const searchButtonClick=()=>{
+const searchButtonClick = () => {
   router.push({
-    path:'/search',
-    query:{
-      citeName:currentCity.value.cityName,
-      startDate:startDate.value,
-      endDate:endDate.value,
+    path: '/search',
+    query: {
+      citeName: currentCity.value.cityName,
+      startDate: startDate.value,
+      endDate: endDate.value,
     }
   })
 }
@@ -180,6 +182,7 @@ const searchButtonClick=()=>{
   --van-button-primary-border-color: var(--primary-color);
   --van-calendar-range-middle-color: var(--primary-color);
   background: #FFF;
+
   .search-box-container {
     display: flex;
     justify-content: space-between;
@@ -277,10 +280,12 @@ const searchButtonClick=()=>{
     border-bottom: none;
     padding-top: 10px;
     margin-bottom: 6px;
+
     &-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
+
       &-item {
         margin: 3px;
         padding: 4px 8px;
@@ -294,10 +299,11 @@ const searchButtonClick=()=>{
 
   .search-bottom {
     border-bottom: none;
+
     &-content {
       width: 342px;
       height: 38px;
-      background-image: linear-gradient(90deg,#fa8c1d,#fcaf3f);
+      background-image: linear-gradient(90deg, #fa8c1d, #fcaf3f);
       font-weight: 500;
       font-size: 18px;
       color: #FFF;

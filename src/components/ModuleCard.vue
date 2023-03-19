@@ -1,7 +1,7 @@
 <template>
   <div class="module-card">
     <div class="module-card__title">{{ title }}</div>
-    <div class="module-card__content">
+    <div class="">
       <slot/>
     </div>
   </div>
@@ -26,9 +26,6 @@ defineProps({
     text-align: start;
     font-size: 18px;
     color: #333;vue
-    background: #FFF;
-  }
-  &__content {
     background: #FFF;
   }
 }
