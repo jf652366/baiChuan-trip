@@ -5,6 +5,10 @@
 </template>
 
 <script setup>
+  import { ref } from "vue";
+
+  const a = '123';
+  const one = ref('123');
 
 </script>
 

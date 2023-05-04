@@ -10,3 +10,12 @@ export const getCategoriesData=()=>{
     url:'/home/categories'
   })
 }
+
+export const getHouseListData=(page=1)=>{
+  return bcRequest.get({
+    url: `/home/houselist`,
+    params:{
+      page
+    }
+  })
+}

@@ -3,7 +3,6 @@
     <template v-for="item in categories">
       <div class="home-categorize-item">
         <img :src="item.pictureUrl" alt="">
-
         <div>
            {{item.title}}
         </div>
@@ -23,8 +22,13 @@ const {categories}=storeToRefs(homeStore)
 
 <style lang="less" scoped>
 .home-categorize {
+  position: relative;
   display: flex;
   overflow: scroll;
+  margin-bottom: 20px;
+
+  padding-bottom: 20px;
+  background: #FFF;
   &-item {
     flex-shrink: 0;
     margin: 0 10px;

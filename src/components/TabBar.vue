@@ -39,7 +39,7 @@ const goPage = (path = '', index) => {
   width: 100%;
   height: 50px;
   border-top: 1px solid #f3f3f3;
-
+background: #FFF;
   &-item {
     display: flex;
     flex-direction: column;

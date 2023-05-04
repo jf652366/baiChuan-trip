@@ -1,0 +1,18 @@
+<template>
+  <ModuleCard :title="'房屋设施'">
+    <div class="box">
+    </div>
+  </ModuleCard>
+</template>
+
+<script setup>
+
+import ModuleCard from "@/components/ModuleCard.vue";
+</script>
+
+<style lang="less" scoped>
+.box {
+  height: 250px;
+  background: darkseagreen;
+}
+</style>

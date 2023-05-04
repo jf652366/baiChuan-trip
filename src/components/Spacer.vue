@@ -1,13 +1,14 @@
 <template>
-<div>search</div>
+<div class="spacer"></div>
 </template>
 
 <script setup>
-import {useRoute} from "vue-router";
 
-const router=useRoute();
 </script>
 
 <style lang="less" scoped>
-
+.spacer {
+  height: 50px;
+  width: 100vw;
+}
 </style>

@@ -20,6 +20,7 @@ import {
   align-items: center;
   height: 44px;
   border-bottom: 1px solid #f3f3f3;
+  background: #FFF;
 
   &-logo {
     margin: 0 auto;
