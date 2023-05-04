@@ -1,14 +1,14 @@
 import {defineStore} from "pinia";
-import {getCityAll} from "@/services";
+import {getHouseDetails} from "@/services";
 
 const useDetailsStore = defineStore('detailsStore', {
   state: () => ({
-    details:{},
+    details: {},
   }),
   actions: {
     async getHouseDetails(houseId) {
-      const res = await getCityAll();
-      this.allCities = res.data;
+      const res = await getHouseDetails(houseId);
+      this.details = res.data;
     }
   }
 })

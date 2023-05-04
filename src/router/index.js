@@ -40,7 +40,7 @@ const router = createRouter({
     },
     {
       path: '/goodDetail/:id',
-      component: () => import('@/views/GoodDetail/GoodDetails.vue'),
+      component: () => import('@/views/GoodDetail/HouseDetails.vue'),
       meta: {
         showTabBar: true
       }

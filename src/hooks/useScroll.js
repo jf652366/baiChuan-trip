@@ -5,18 +5,18 @@ import {throttle} from "underscore";
 // export const useScroll = (
 //   fun
 // ) => {
-//   const body = document.querySelector('body')
+//   const el = document.querySelector('el')
 //   const scrollListener = () => {
-//     const {clientHeight, scrollHeight, scrollTop} = body
+//     const {clientHeight, scrollHeight, scrollTop} = el
 //     if (Math.floor(clientHeight + scrollTop) === scrollHeight) {
 //       if (fun)fun()
 //     }
 //   }
 //   onMounted(() => {
-//     body.addEventListener('scroll', scrollListener, true)
+//     el.addEventListener('scroll', scrollListener, true)
 //   })
 //   onUnmounted(() => {
-//     body.removeEventListener('scroll', scrollListener)
+//     el.removeEventListener('scroll', scrollListener)
 //   })
 // }
 
@@ -26,22 +26,22 @@ export const useScroll = () => {
   const clientHeight = ref(0);
   const scrollHeight = ref(0);
   const scrollTop = ref(0);
-  const body = document.querySelector('body');
+  const el = document.querySelector('body');
   const scrollListener = throttle(() => {
-    clientHeight.value=body.clientHeight
-    scrollHeight.value=body.scrollHeight
-    scrollTop.value=body.scrollTop
+    clientHeight.value = el.clientHeight
+    scrollHeight.value = el.scrollHeight
+    scrollTop.value = el.scrollTop
     const sumHeight = Math.floor(clientHeight.value + scrollTop.value);
     if (sumHeight === scrollHeight.value || sumHeight + 1 === scrollHeight.value) {
       scrollEnd.value = true;
       console.log("=={{ 到底了 }}==");
     }
-  },200);
+  }, 200);
   onMounted(() => {
-    body.addEventListener('scroll', scrollListener, true)
+    el.addEventListener('scroll', scrollListener, true)
   });
   onUnmounted(() => {
-    body.removeEventListener('scroll', scrollListener)
+    el.removeEventListener('scroll', scrollListener)
   });
-  return {scrollEnd,clientHeight, scrollHeight, scrollTop};
+  return {scrollEnd, clientHeight, scrollHeight, scrollTop};
 }
